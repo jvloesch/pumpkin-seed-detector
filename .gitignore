@@ -1,2 +1,7 @@
 requisitos.txt
 Enunciado.pdf
+.venv/
+venv/
+__pycache__/
+*.pyc
+.vscode/
