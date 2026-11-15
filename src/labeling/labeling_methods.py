@@ -74,3 +74,48 @@ def highlight_seeds(image, seeds):
         max_x = max(x for y, x in seed)
         cv2.rectangle(result, (min_x, min_y), (max_x, max_y), (0, 255, 0), 2)
     return result
+
+#Retorna a área da semente em pixels
+def seed_area(seed):
+    return len(seed)
+
+#Retorna o aspect ratio da semente como uma string
+def seed_aspect_ratio(seed):
+    min_y = min(y for y, x in seed)
+    max_y = max(y for y, x in seed)
+    min_x = min(x for y, x in seed)
+    max_x = max(x for y, x in seed)
+    y = max_y - min_y + 1
+    x = max_x - min_x + 1
+
+    return str(x) + ":" + str(y)
+
+#Retorna uma tupla altura:largura em pixels
+def seed_height_width(seed):
+    min_y = min(y for y, x in seed)
+    max_y = max(y for y, x in seed)
+    min_x = min(x for y, x in seed)
+    max_x = max(x for y, x in seed)
+    y = max_y - min_y + 1
+    x = max_x - min_x + 1
+
+    #Considerando o formato das sementes, assume que ela sempre tem mais altura do que largura
+    if(y >= x):
+        return (y,x)
+    else:
+        return (x,y)
+
+#Retorna as estatísticas de uma semente
+def seed_measures(seed):
+    data = []
+    data.append(seed_height_width(seed))
+    data.append(seed_area(seed))
+    data.append(seed_aspect_ratio(seed))
+    return data
+
+#Retorna as estatísticas de todas as sementes em uma imagem
+def seeds_statistics(seeds):
+    statistics = []
+    for seed in seeds:
+        statistics.append(seed_measures(seed))
+    return statistics

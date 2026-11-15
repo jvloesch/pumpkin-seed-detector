@@ -1,10 +1,10 @@
 import cv2
 from pathlib import Path
 from src.image_processing.segmentation import segment_image
-from src.labeling.labeling_methods import find_seeds, highlight_seeds
+from src.labeling.labeling_methods import find_seeds, highlight_seeds, seeds_statistics
 
 project_root = Path(__file__).resolve().parents[1]
-image_path = project_root / "data" / "images" / "pumpkin_0080.jpg"
+image_path = project_root / "data" / "images" / "pumpkin_0012.jpg"
 
 image = cv2.imread(image_path, cv2.IMREAD_COLOR)
 if image is None:
@@ -18,6 +18,7 @@ areas_8 = highlight_seeds(image, seeds_8)
 
 print(f"Sementes encontradas: {len(seeds_4)}")
 print(f"Sementes encontradas: {len(seeds_8)}")
+print(seeds_statistics(seeds_4))
 
 
 cv2.namedWindow("Original", cv2.WINDOW_NORMAL)
