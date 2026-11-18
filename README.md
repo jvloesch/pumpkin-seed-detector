@@ -3,7 +3,7 @@
 **Trabalho acadêmico — Processamento Digital de Imagens**  
 **Curso:** Ciência da Computação — Unisinos  
 **Professor:** Guilherme Chagas Kurtz  
-**Integrantes:** Amanda Silveira e João Vitor
+**Integrantes:** Amanda Silveira e João Vitor Loesch
 
 ## 1. Sobre o projeto
 
@@ -146,8 +146,6 @@ O projeto contém `requirements.txt` para registrar as dependências. **Atençã
 ```bash
 python -m pip install numpy opencv-python
 ```
-
-Para uma entrega reproduzível, recomenda-se corrigir e testar as versões de `requirements.txt` no ambiente usado pelo grupo.
 
 ### 6.3. Executar a demonstração visual
 
